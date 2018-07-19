@@ -9,8 +9,8 @@
     </v-toolbar>
     <v-content>
       <v-container fluid>
-        <v-flex xs9>
-          aaaa
+        <v-flex>
+          <Render></Render>
         </v-flex>
       </v-container>
     </v-content>
@@ -22,12 +22,14 @@
 import Main from './components/Main'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
+import Render from './components/Render'
 
 export default {
   name: 'App',
   components: {
     Main,
     Footer,
+    Render,
     Nav
   },
   data() {
@@ -44,7 +46,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Calsifar'
     }
   }
 }
