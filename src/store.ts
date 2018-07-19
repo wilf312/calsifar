@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    currentPage: { type: 'page', pageNum: 1 },
     element: [
       {
         type: 'text',
