@@ -8,6 +8,9 @@ import VBtn from 'vuetify/es5/components/VBtn'
 import VIcon from 'vuetify/es5/components/VIcon'
 import VGrid from 'vuetify/es5/components/VGrid'
 import VToolbar from 'vuetify/es5/components/VToolbar'
+import VAvatar from 'vuetify/es5/components/VAvatar'
+import VBottomSheet from 'vuetify/es5/components/VBottomSheet'
+import VSubheader from 'vuetify/es5/components/VSubheader'
 import transitions from 'vuetify/es5/components/transitions'
 import 'vuetify/src/stylus/app.styl'
 
@@ -19,7 +22,10 @@ Vue.use(Vuetify, {
     VList,
     VBtn,
     VIcon,
+    VSubheader,
     VGrid,
+    VBottomSheet,
+    VAvatar,
     VToolbar,
     transitions
   },
