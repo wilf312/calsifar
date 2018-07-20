@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import uuid from 'uuid'
 
 Vue.use(Vuex)
 
@@ -10,40 +11,74 @@ export default new Vuex.Store({
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h1'
+        paragraphType: 'h1',
+        uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h2'
+        paragraphType: 'h2',
+        uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h3'
+        paragraphType: 'h3',
+        uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h4'
+        paragraphType: 'h4',
+        uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h5'
+        paragraphType: 'h5',
+        uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h6'
+        paragraphType: 'h6',
+        uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'p'
+        paragraphType: 'p',
+        uid: uuid.v4()
       }
     ]
   },
-  mutations: {},
-  actions: {}
+  mutations: {
+    addText(state) {
+      state.element.push({
+        type: 'text',
+        data: 'please edit text',
+        paragraphType: 'p',
+        uid: uuid.v4()
+      })
+    },
+    editText(state, updateText) {
+      state.element = state.element.map(d => {
+        if (d.uid === updateText.uid) {
+          return {
+            ...updateText
+          }
+        } else {
+          return d
+        }
+      })
+    },
+    deleteText(state, targetUid: string) {
+      state.element = [...state.element.filter(({ uid }) => uid !== targetUid)]
+    }
+  },
+  actions: {
+    addText({ commit }) {
+      commit('addText')
+    }
+  }
 })

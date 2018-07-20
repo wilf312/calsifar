@@ -14,7 +14,7 @@
         <v-list-tile
           v-for="(tile, index) in tiles"
           :key="index"
-          @click="isVisibleForAddElement = false"
+          @click="isVisibleForAddElement = false; addText()"
         >
           <v-list-tile-title>{{ tile.title }}</v-list-tile-title>
         </v-list-tile>
@@ -24,6 +24,33 @@
 </template>
 
 <script>
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+import { mapActions } from 'vuex'
 export default {
   name: 'Footer',
   data: () => ({
@@ -39,6 +66,9 @@ export default {
   components: {},
   props: {
     msg: String
+  },
+  methods: {
+    ...mapActions(['addText'])
   }
 }
 </script>
