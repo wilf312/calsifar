@@ -1,10 +1,14 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { StoreOptions } from 'vuex'
 import uuid from 'uuid'
+import { RootState } from '@/types/store'
+import { TextElement } from '@/types/element'
+import { editor } from './editor'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store: StoreOptions<RootState> = {
+  strict: process.env.NODE_ENV !== 'production',
   state: {
     currentPage: { type: 'page', pageNum: 1 },
     element: [
@@ -49,12 +53,6 @@ export default new Vuex.Store({
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'p',
         uid: uuid.v4()
-      },
-      {
-        type: 'text',
-        data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'div',
-        uid: uuid.v4()
       }
     ]
   },
@@ -67,7 +65,7 @@ export default new Vuex.Store({
         uid: uuid.v4()
       })
     },
-    editText(state, updateText) {
+    editText(state, updateText: TextElement) {
       state.element = state.element.map(d => {
         if (d.uid === updateText.uid) {
           return {
@@ -85,6 +83,14 @@ export default new Vuex.Store({
   actions: {
     addText({ commit }) {
       commit('addText')
+    },
+    editText({ commit }, editText: TextElement) {
+      commit('editText', editText)
     }
+  },
+  modules: {
+    editor
   }
-})
+}
+
+export default new Vuex.Store<RootState>(store)

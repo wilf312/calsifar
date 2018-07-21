@@ -16,6 +16,7 @@
     "ordered-imports": false,
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false,
+    "no-shadowed-variable": [{"function": false}],
     "no-console": ["log"]
   }
 }

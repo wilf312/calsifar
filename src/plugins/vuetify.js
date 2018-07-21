@@ -11,6 +11,7 @@ import VToolbar from 'vuetify/es5/components/VToolbar'
 import VAvatar from 'vuetify/es5/components/VAvatar'
 import VBottomSheet from 'vuetify/es5/components/VBottomSheet'
 import VSubheader from 'vuetify/es5/components/VSubheader'
+import VTextField from 'vuetify/es5/components/VTextField'
 import transitions from 'vuetify/es5/components/transitions'
 import 'vuetify/src/stylus/app.styl'
 
@@ -27,6 +28,7 @@ Vue.use(Vuetify, {
     VBottomSheet,
     VAvatar,
     VToolbar,
+    VTextField,
     transitions
   },
   theme: {
