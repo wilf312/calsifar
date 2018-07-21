@@ -24,30 +24,25 @@
   </v-footer>
 </template>
 
-<script>
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
 import { mapActions } from 'vuex'
-export default {
+
+@Component({
   name: 'Footer',
-  data: () => ({
-    isVisibleForAddElement: false,
-    tiles: [
-      { title: 'Text' },
-      { title: 'Button' },
-      { title: 'Select' },
-      { title: 'Text' },
-      { title: 'Google+' }
-    ]
-  }),
   components: {},
-  props: {
-    msg: String
-  },
   methods: {
     ...mapActions(['addText'])
   }
+})
+export default class Footer extends Vue {
+  private isVisibleForAddElement = false
+  private tiles = [
+    { title: 'Text' },
+    { title: 'Button' },
+    { title: 'Select' },
+    { title: 'Text' },
+    { title: 'Google+' }
+  ]
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>

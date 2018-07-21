@@ -5,6 +5,7 @@ import uuid from 'uuid'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   state: {
     currentPage: { type: 'page', pageNum: 1 },
     currentEditUid: '',

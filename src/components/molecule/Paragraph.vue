@@ -9,31 +9,22 @@
   <ErrorText v-else text="paragraphType not found"></ErrorText>
 </template>
 
-<script>
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-import ErrorText from '../atom/ErrorText'
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
 import { mapMutations } from 'vuex'
-export default {
+import ErrorText from '@/components/atom/ErrorText.vue'
+import { TextElement } from '@/types/element'
+
+@Component({
   name: 'Paragraph',
   components: {
     ErrorText
   },
-  props: {
-    nodes: Object
-  },
   methods: {
     ...mapMutations(['setEditor'])
   }
+})
+export default class Paragraph extends Vue {
+  @Prop(Object) private nodes!: TextElement
 }
 </script>
