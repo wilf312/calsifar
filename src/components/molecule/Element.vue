@@ -1,5 +1,5 @@
 <template>
-  <Paragraph v-if="elementStatus === 'text'" :nodes="nodes"/>
+  <Paragraph v-if="elementStatus === 'text'" :nodes="nodes" />
 </template>
 
 <script>

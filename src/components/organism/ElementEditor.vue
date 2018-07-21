@@ -4,19 +4,24 @@
       <v-list>
         <v-list-tile>
           <v-list-tile-title class="title">
-            Application
+            Editor
           </v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-toolbar>
+    {{currentEditUid}}
   </v-navigation-drawer>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { mapGetters, mapState } from 'vuex'
 
 @Component({
-  components: {}
+  components: {},
+  computed: {
+    ...mapState(['currentEditUid'])
+  }
 })
 export default class ElementEditor extends Vue {}
 </script>

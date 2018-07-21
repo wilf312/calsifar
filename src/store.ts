@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currentPage: { type: 'page', pageNum: 1 },
+    currentEditUid: '',
     element: [
       {
         type: 'text',
@@ -49,12 +50,6 @@ export default new Vuex.Store({
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'p',
         uid: uuid.v4()
-      },
-      {
-        type: 'text',
-        data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'div',
-        uid: uuid.v4()
       }
     ]
   },
@@ -80,6 +75,9 @@ export default new Vuex.Store({
     },
     deleteText(state, targetUid: string) {
       state.element = [...state.element.filter(({ uid }) => uid !== targetUid)]
+    },
+    setEditor(state, uid: string) {
+      state.currentEditUid = uid
     }
   },
   actions: {
