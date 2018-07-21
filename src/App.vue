@@ -1,13 +1,8 @@
 <template>
   <v-app>
-    <v-toolbar
-      app
-      :clipped-left="clipped"
-    >
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
+    <ElementEditor />
     <v-content>
+      <GlobalHeader title="calsifar" />
       <v-container fluid>
         <v-flex>
           <Render></Render>
@@ -20,9 +15,10 @@
 
 <script>
 import Main from './components/Main'
-import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Render from './components/Render'
+import ElementEditor from './components/organism/ElementEditor'
+import GlobalHeader from './components/atom/GlobalHeader'
 
 export default {
   name: 'App',
@@ -30,7 +26,8 @@ export default {
     Main,
     Footer,
     Render,
-    Nav
+    GlobalHeader,
+    ElementEditor
   },
   data() {
     return {

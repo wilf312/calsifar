@@ -1,5 +1,5 @@
 <template>
-  <v-footer>
+  <v-footer app>
     <v-bottom-sheet v-model="isVisibleForAddElement">
       <v-btn
         slot="activator"
@@ -25,32 +25,6 @@
 </template>
 
 <script>
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 import { mapActions } from 'vuex'
 export default {
   name: 'Footer',
