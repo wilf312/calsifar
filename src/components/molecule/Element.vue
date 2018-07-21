@@ -2,21 +2,21 @@
   <Paragraph v-if="elementStatus === 'text'" :nodes="nodes" />
 </template>
 
-<script>
-import Paragraph from './Paragraph'
-export default {
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import Paragraph from '@/components/molecule/Paragraph.vue'
+import { TextElement } from '@/types/element'
+@Component({
   name: 'Element',
   components: {
     Paragraph
-  },
-  props: {
-    nodes: Object
-  },
-  computed: {
-    elementStatus() {
-      const { type } = this.nodes
-      return type
-    }
+  }
+})
+export default class Element extends Vue {
+  @Prop(Object) public nodes!: TextElement
+
+  get elementStatus(): string {
+    return this.nodes.type
   }
 }
 </script>

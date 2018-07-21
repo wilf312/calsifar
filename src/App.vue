@@ -14,16 +14,14 @@
 </template>
 
 <script>
-import Main from './components/Main'
-import Footer from './components/Footer'
-import Render from './components/Render'
-import ElementEditor from './components/organism/ElementEditor'
-import GlobalHeader from './components/atom/GlobalHeader'
+import Footer from '@/components/organism/Footer'
+import Render from '@/components/organism/Render'
+import ElementEditor from '@/components/organism/ElementEditor'
+import GlobalHeader from '@/components/atom/GlobalHeader'
 
 export default {
   name: 'App',
   components: {
-    Main,
     Footer,
     Render,
     GlobalHeader,

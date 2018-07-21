@@ -1,18 +1,48 @@
 <template>
-  <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <v-app>
+    <ElementEditor />
+    <v-content>
+      <GlobalHeader title="calsifar" />
+      <v-container fluid>
+        <v-flex>
+          <Render></Render>
+        </v-flex>
+      </v-container>
+    </v-content>
+    <Footer />
+  </v-app>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue'
+<script>
+import Footer from '@/components/organism/Footer'
+import Render from '@/components/organism/Render'
+import ElementEditor from '@/components/organism/ElementEditor'
+import GlobalHeader from '@/components/atom/GlobalHeader'
 
-@Component({
+export default {
+  name: 'App',
   components: {
-    HelloWorld
+    Footer,
+    Render,
+    GlobalHeader,
+    ElementEditor
+  },
+  data() {
+    return {
+      clipped: false,
+      drawer: true,
+      fixed: false,
+      items: [
+        {
+          icon: 'bubble_chart',
+          title: 'Inspire'
+        }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Calsifar'
+    }
   }
-})
-export default class Home extends Vue {}
+}
 </script>
