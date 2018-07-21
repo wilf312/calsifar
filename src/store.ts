@@ -49,6 +49,12 @@ export default new Vuex.Store({
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'p',
         uid: uuid.v4()
+      },
+      {
+        type: 'text',
+        data: 'Would you choose to sleep with the fishes?',
+        paragraphType: 'div',
+        uid: uuid.v4()
       }
     ]
   },

@@ -1,12 +1,19 @@
 <template>
-  <div v-html="renderer" />
+  <div>
+    <Element v-for="(el, key) in element" :key="key"
+      :nodes="el" />
+  </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import Element from './molecule/Element'
 export default {
   name: 'Render',
   data: () => ({}),
+  components: {
+    Element
+  },
   computed: {
     ...mapState({
       element: state => state.element
@@ -36,8 +43,7 @@ export default {
         element.paragraphType
       }>`
     }
-  },
-  components: {}
+  }
 }
 </script>
 

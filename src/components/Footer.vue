@@ -14,10 +14,11 @@
         <v-list-tile
           v-for="(tile, index) in tiles"
           :key="index"
-          @click="isVisibleForAddElement = false; addText()"
+          @click="addText()"
         >
           <v-list-tile-title>{{ tile.title }}</v-list-tile-title>
         </v-list-tile>
+        <v-btn @click="isVisibleForAddElement = false">close</v-btn>
       </v-list>
     </v-bottom-sheet>
   </v-footer>
