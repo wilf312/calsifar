@@ -9,6 +9,8 @@
 import { Vue, Component } from 'vue-property-decorator'
 import { mapState } from 'vuex'
 import Element from '@/components/molecule/Element.vue'
+import { RootState } from '@/types/store'
+import { UnionElement } from '@/types/element'
 
 @Component({
   name: 'Render',
@@ -17,7 +19,7 @@ import Element from '@/components/molecule/Element.vue'
   },
   computed: {
     ...mapState({
-      element: state => state.element
+      element: (state: RootState): UnionElement[] => state.element
     })
   }
 })

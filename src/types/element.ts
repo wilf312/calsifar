@@ -4,3 +4,9 @@ export interface TextElement {
   paragraphType: string
   uid: string
 }
+export interface ButtonElement {
+  type: string
+  uid: string
+}
+
+export type UnionElement = TextElement | ButtonElement

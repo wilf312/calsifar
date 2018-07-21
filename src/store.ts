@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { StoreOptions } from 'vuex'
 import uuid from 'uuid'
+import { RootState } from '@/types/store'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store: StoreOptions<RootState> = {
   strict: process.env.NODE_ENV !== 'production',
   state: {
     currentPage: { type: 'page', pageNum: 1 },
@@ -85,5 +86,8 @@ export default new Vuex.Store({
     addText({ commit }) {
       commit('addText')
     }
-  }
-})
+  },
+  modules: {}
+}
+
+export default new Vuex.Store<RootState>(store)
