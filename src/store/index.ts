@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
 import uuid from 'uuid'
-import { RootState } from '@/types/store'
+import { RootState, EditorState } from '@/types/store'
+import * as editor from './editor'
 
 Vue.use(Vuex)
 
@@ -9,7 +10,6 @@ const store: StoreOptions<RootState> = {
   strict: process.env.NODE_ENV !== 'production',
   state: {
     currentPage: { type: 'page', pageNum: 1 },
-    currentEditUid: '',
     element: [
       {
         type: 'text',
@@ -77,9 +77,6 @@ const store: StoreOptions<RootState> = {
     },
     deleteText(state, targetUid: string) {
       state.element = [...state.element.filter(({ uid }) => uid !== targetUid)]
-    },
-    setEditor(state, uid: string) {
-      state.currentEditUid = uid
     }
   },
   actions: {
@@ -87,7 +84,9 @@ const store: StoreOptions<RootState> = {
       commit('addText')
     }
   },
-  modules: {}
+  modules: {
+    editor
+  }
 }
 
 export default new Vuex.Store<RootState>(store)
