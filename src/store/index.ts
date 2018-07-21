@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
 import uuid from 'uuid'
 import { RootState, EditorState } from '@/types/store'
-import * as editor from './editor'
+import { editor } from './editor'
 
 Vue.use(Vuex)
 
