@@ -9,9 +9,10 @@
         </v-list-tile>
       </v-list>
     </v-toolbar>
-    <TextEditor :editElement="currentEditElement" :element="element" />
-    {{currentEditUid}}
-    {{element}}
+    <div v-if="currentEditUid">
+      <TextEditor v-if="element.type === 'text'" :editElement="currentEditElement" :element="element" />
+
+    </div>
   </v-navigation-drawer>
 </template>
 
