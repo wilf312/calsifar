@@ -1,4 +1,4 @@
-import { UnionElement } from '@/types/element'
+import { UnionElement, TextElement } from '@/types/element'
 
 interface CurrentPage {
   type: string
@@ -7,6 +7,7 @@ interface CurrentPage {
 
 export interface EditorState {
   currentEditUid: string
+  currendEditElement: TextElement
 }
 
 export interface RootState {

@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import ErrorText from '@/components/atom/ErrorText.vue'
 import { TextElement } from '@/types/element'
 
@@ -21,7 +21,7 @@ import { TextElement } from '@/types/element'
     ErrorText
   },
   methods: {
-    ...mapMutations(['setEditor'])
+    ...mapActions('editor', ['setEditor'])
   }
 })
 export default class Paragraph extends Vue {

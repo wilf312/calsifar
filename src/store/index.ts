@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
 import uuid from 'uuid'
-import { RootState, EditorState } from '@/types/store'
+import { RootState } from '@/types/store'
+import { TextElement } from '@/types/element'
 import { editor } from './editor'
 
 Vue.use(Vuex)
@@ -64,7 +65,7 @@ const store: StoreOptions<RootState> = {
         uid: uuid.v4()
       })
     },
-    editText(state, updateText) {
+    editText(state, updateText: TextElement) {
       state.element = state.element.map(d => {
         if (d.uid === updateText.uid) {
           return {
@@ -82,6 +83,9 @@ const store: StoreOptions<RootState> = {
   actions: {
     addText({ commit }) {
       commit('addText')
+    },
+    editText({ commit }, editText: TextElement) {
+      commit('editText', editText)
     }
   },
   modules: {
