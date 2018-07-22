@@ -8,6 +8,7 @@ const state: EditorState = {
     type: '',
     data: '',
     paragraphType: '',
+    align: '',
     uid: ''
   }
 }
@@ -18,6 +19,7 @@ const getters: GetterTree<EditorState, RootState> = {
       type: '',
       data: '',
       paragraphType: '',
+      align: '',
       uid: ''
     }
     if (state.currentEditUid === '') {
@@ -60,6 +62,16 @@ const actions: ActionTree<EditorState, RootState> = {
       {
         ...getters.element,
         paragraphType
+      },
+      { root: true }
+    )
+  },
+  updateAlign({ dispatch, getters }, align: string) {
+    dispatch(
+      'editText',
+      {
+        ...getters.element,
+        align
       },
       { root: true }
     )

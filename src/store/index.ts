@@ -16,42 +16,49 @@ const store: StoreOptions<RootState> = {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'h1',
+        align: 'text-xs-left',
         uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'h2',
+        align: 'text-xs-left',
         uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'h3',
+        align: 'text-xs-left',
         uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'h4',
+        align: 'text-xs-left',
         uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'h5',
+        align: 'text-xs-left',
         uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'h6',
+        align: 'text-xs-left',
         uid: uuid.v4()
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: 'p',
+        align: 'text-xs-left',
         uid: uuid.v4()
       }
     ]
@@ -62,6 +69,7 @@ const store: StoreOptions<RootState> = {
         type: 'text',
         data: 'please edit text',
         paragraphType: 'p',
+        align: 'text-xs-left',
         uid: uuid.v4()
       })
     },
