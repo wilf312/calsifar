@@ -78,6 +78,9 @@ const store: StoreOptions<RootState> = {
       return state.element.filter(
         (element: UnionElement) => element.page === state.currentPage.pageNum
       )
+    },
+    currentPageNum(state: RootState) {
+      return state.currentPage.pageNum
     }
   },
   mutations: {
@@ -104,6 +107,9 @@ const store: StoreOptions<RootState> = {
     },
     deleteText(state, targetUid: string) {
       state.element = [...state.element.filter(({ uid }) => uid !== targetUid)]
+    },
+    changePage(state, pageNum: number) {
+      state.currentPage.pageNum = pageNum
     }
   },
   actions: {
@@ -112,6 +118,9 @@ const store: StoreOptions<RootState> = {
     },
     editText({ commit }, editText: TextElement) {
       commit('editText', editText)
+    },
+    changePage({ commit }, pageNum: number) {
+      commit('changePage', pageNum)
     }
   },
   modules: {

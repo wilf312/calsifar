@@ -21,18 +21,28 @@
         <v-btn @click="isVisibleForAddElement = false">close</v-btn>
       </v-list>
     </v-bottom-sheet>
+
+    <v-spacer />
+    <div>
+      <v-icon @click="backPage">arrow_back</v-icon>
+      <div class="currentPageNum">{{currentPageNum}}</div>
+      <v-icon @click="nextPage">arrow_forward</v-icon>
+    </div>
   </v-footer>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 @Component({
   name: 'Footer',
   components: {},
+  computed: {
+    ...mapGetters(['currentPageNum'])
+  },
   methods: {
-    ...mapActions(['addText'])
+    ...mapActions(['addText', 'changePage'])
   }
 })
 export default class Footer extends Vue {
@@ -44,5 +54,25 @@ export default class Footer extends Vue {
     { title: 'Text' },
     { title: 'Google+' }
   ]
+
+  public nextPage() {
+    const { currentPageNum } = this
+    this.changePage(this.currentPageNum + 1)
+  }
+  public backPage() {
+    this.changePage(this.currentPageNum - 1)
+  }
 }
 </script>
+
+
+<style scoped>
+.currentPageNum {
+  position: relative;
+  bottom: 2px;
+  font-size: 18px;
+  line-height: 20px;
+  display: inline-block;
+  padding: 0 12px;
+}
+</style>

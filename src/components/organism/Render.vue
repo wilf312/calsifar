@@ -2,6 +2,10 @@
   <div>
     <Element v-for="(el, key) in pageElement" :key="key"
       :nodes="el" />
+    <div class="" v-if="pageElement.length === 0">
+      <p>no element.</p>
+      <p>please add element</p>
+    </div>
   </div>
 </template>
 
