@@ -56,7 +56,6 @@ export default class Footer extends Vue {
   ]
 
   public nextPage() {
-    const { currentPageNum } = this
     this.changePage(this.currentPageNum + 1)
   }
   public backPage() {
