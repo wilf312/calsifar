@@ -7,8 +7,8 @@ const state: EditorState = {
   currendEditElement: {
     type: '',
     data: '',
-    paragraphType: '',
-    align: '',
+    paragraphType: 'p',
+    align: 'text-xs-left',
     uid: ''
   }
 }
@@ -18,8 +18,8 @@ const getters: GetterTree<EditorState, RootState> = {
     const notFound: TextElement = {
       type: '',
       data: '',
-      paragraphType: '',
-      align: '',
+      paragraphType: 'p',
+      align: 'text-xs-left',
       uid: ''
     }
     if (state.currentEditUid === '') {
