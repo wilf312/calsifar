@@ -1,35 +1,35 @@
 <template>
-  <h1 v-if="nodes.paragraphType === 'h1'"
+  <h1 v-if="nodes.paragraphType === PARAGRAPH_TYPE.H1"
     @click="setEditor(nodes.uid)"
     :class="[nodes.align]"
     v-text="nodes.data"
     />
-  <h2 v-else-if="nodes.paragraphType === 'h2'"
+  <h2 v-else-if="nodes.paragraphType === PARAGRAPH_TYPE.H2"
     @click="setEditor(nodes.uid)"
     :class="[nodes.align]"
     v-text="nodes.data"
     />
-  <h3 v-else-if="nodes.paragraphType === 'h3'"
+  <h3 v-else-if="nodes.paragraphType === PARAGRAPH_TYPE.H3"
     @click="setEditor(nodes.uid)"
     :class="[nodes.align]"
     v-text="nodes.data"
     />
-  <h4 v-else-if="nodes.paragraphType === 'h4'"
+  <h4 v-else-if="nodes.paragraphType === PARAGRAPH_TYPE.H4"
     @click="setEditor(nodes.uid)"
     :class="[nodes.align]"
     v-text="nodes.data"
     />
-  <h5 v-else-if="nodes.paragraphType === 'h5'"
+  <h5 v-else-if="nodes.paragraphType === PARAGRAPH_TYPE.H5"
     @click="setEditor(nodes.uid)"
     :class="[nodes.align]"
     v-text="nodes.data"
     />
-  <h6 v-else-if="nodes.paragraphType === 'h6'"
+  <h6 v-else-if="nodes.paragraphType === PARAGRAPH_TYPE.H6"
     @click="setEditor(nodes.uid)"
     :class="[nodes.align]"
     v-text="nodes.data"
     />
-  <p v-else-if="nodes.paragraphType === 'p'"
+  <p v-else-if="nodes.paragraphType === PARAGRAPH_TYPE.P"
     @click="setEditor(nodes.uid)"
     :class="[nodes.align]"
     v-text="nodes.data"
@@ -42,6 +42,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 import { mapActions } from 'vuex'
 import ErrorText from '@/components/atom/ErrorText.vue'
 import { TextElement } from '@/types/element'
+import { PARAGRAPH_TYPE } from '@/const'
 
 @Component({
   name: 'Paragraph',
@@ -54,5 +55,7 @@ import { TextElement } from '@/types/element'
 })
 export default class Paragraph extends Vue {
   @Prop(Object) private nodes!: TextElement
+  @Prop({ default: () => PARAGRAPH_TYPE })
+  private PARAGRAPH_TYPE!: PARAGRAPH_TYPE
 }
 </script>

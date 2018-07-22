@@ -4,10 +4,12 @@ export interface TextElement {
   paragraphType: string
   align: string
   uid: string
+  page: number
 }
 export interface ButtonElement {
   type: string
   uid: string
+  page: number
 }
 
 export type UnionElement = TextElement | ButtonElement
