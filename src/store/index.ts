@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
+
 import uuid from 'uuid'
 import { RootState } from '@/types/store'
 import { TextElement } from '@/types/element'
@@ -98,7 +100,8 @@ const store: StoreOptions<RootState> = {
   },
   modules: {
     editor
-  }
+  },
+  plugins: [createPersistedState()]
 }
 
 export default new Vuex.Store<RootState>(store)
