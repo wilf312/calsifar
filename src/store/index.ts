@@ -4,8 +4,9 @@ import createPersistedState from 'vuex-persistedstate'
 
 import uuid from 'uuid'
 import { RootState } from '@/types/store'
-import { TextElement } from '@/types/element'
+import { TextElement, UnionElement } from '@/types/element'
 import { editor } from './editor'
+import { PARAGRAPH_TYPE } from '@/const'
 
 Vue.use(Vuex)
 
@@ -17,53 +18,67 @@ const store: StoreOptions<RootState> = {
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h1',
+        paragraphType: PARAGRAPH_TYPE.H1,
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: 1
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h2',
+        paragraphType: PARAGRAPH_TYPE.H2,
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: 1
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h3',
+        paragraphType: PARAGRAPH_TYPE.H3,
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: 1
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h4',
+        paragraphType: PARAGRAPH_TYPE.H4,
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: 1
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h5',
+        paragraphType: PARAGRAPH_TYPE.H5,
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: 1
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'h6',
+        paragraphType: PARAGRAPH_TYPE.H6,
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: 1
       },
       {
         type: 'text',
         data: 'Would you choose to sleep with the fishes?',
-        paragraphType: 'p',
+        paragraphType: PARAGRAPH_TYPE.P,
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: 1
       }
     ]
+  },
+  getters: {
+    pageElement(state: RootState) {
+      return state.element.filter(
+        (element: UnionElement) => element.page === state.currentPage.pageNum
+      )
+    }
   },
   mutations: {
     addText(state) {
@@ -72,7 +87,8 @@ const store: StoreOptions<RootState> = {
         data: 'please edit text',
         paragraphType: 'p',
         align: 'text-xs-left',
-        uid: uuid.v4()
+        uid: uuid.v4(),
+        page: state.currentPage.pageNum
       })
     },
     editText(state, updateText: TextElement) {
@@ -101,7 +117,11 @@ const store: StoreOptions<RootState> = {
   modules: {
     editor
   },
-  plugins: [createPersistedState()]
+  plugins: [
+    createPersistedState({
+      key: '2'
+    })
+  ]
 }
 
 export default new Vuex.Store<RootState>(store)

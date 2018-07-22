@@ -1,15 +1,17 @@
 import { Module, GetterTree, ActionTree, MutationTree } from 'vuex'
 import { RootState, EditorState } from '@/types/store'
 import { TextElement, UnionElement } from '@/types/element'
+import { PARAGRAPH_TYPE } from '@/const'
 
 const state: EditorState = {
   currentEditUid: '',
   currendEditElement: {
     type: '',
     data: '',
-    paragraphType: 'p',
+    paragraphType: PARAGRAPH_TYPE.P,
     align: 'text-xs-left',
-    uid: ''
+    uid: '',
+    page: 1
   }
 }
 
@@ -18,9 +20,10 @@ const getters: GetterTree<EditorState, RootState> = {
     const notFound: TextElement = {
       type: '',
       data: '',
-      paragraphType: 'p',
+      paragraphType: PARAGRAPH_TYPE.P,
       align: 'text-xs-left',
-      uid: ''
+      uid: '',
+      page: 1
     }
     if (state.currentEditUid === '') {
       return notFound
