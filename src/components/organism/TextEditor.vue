@@ -27,6 +27,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { mapActions, mapMutations } from 'vuex'
+import { Action } from 'vuex-class'
 import { TextElement } from '@/types/element'
 
 @Component({
@@ -48,23 +49,20 @@ import { TextElement } from '@/types/element'
       ]
     }
   },
-  components: {},
-  methods: {
-    ...mapActions(['editText']),
-    ...mapActions('editor', [
-      'updateText',
-      'updateParagraphType',
-      'updateAlign'
-    ])
-  }
+  components: {}
 })
 export default class TextEditor extends Vue {
   @Prop(Object) public element!: TextElement
   @Prop(Object) public editElement!: TextElement
 
-  public change(val: string) {
-    console.log(val)
-  }
+  @Action('editText') public editText: any
+  @Action('updateText', { namespace: 'editor' })
+  private updateText: any
+  @Action('updateParagraphType', { namespace: 'editor' })
+  private updateParagraphType: any
+  @Action('updateAlign', { namespace: 'editor' })
+  private updateAlign: any
+
   get align() {
     return this.element.align
   }

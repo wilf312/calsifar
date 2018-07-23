@@ -33,17 +33,11 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { mapActions, mapGetters } from 'vuex'
+import { Action, Getter } from 'vuex-class'
 
 @Component({
   name: 'Footer',
-  components: {},
-  computed: {
-    ...mapGetters(['currentPageNum'])
-  },
-  methods: {
-    ...mapActions(['addText', 'changePage'])
-  }
+  components: {}
 })
 export default class Footer extends Vue {
   private isVisibleForAddElement = false
@@ -54,6 +48,9 @@ export default class Footer extends Vue {
     { title: 'Text' },
     { title: 'Google+' }
   ]
+  @Action('changePage') private changePage: any
+  @Action('addText') private addText: any
+  @Getter('currentPageNum') private currentPageNum!: number
 
   public nextPage() {
     this.changePage(this.currentPageNum + 1)
