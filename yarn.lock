@@ -7296,6 +7296,10 @@ vuetify@^1.0.19:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.1.7.tgz#5d511d03397723961bace163a639f86e29dbe582"
 
+vuex-class@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/vuex-class/-/vuex-class-0.3.1.tgz#3c0b946bcff4cf2be1904de5b0cab1a3dd5c41d5"
+
 vuex-persistedstate@^2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/vuex-persistedstate/-/vuex-persistedstate-2.5.4.tgz#a19710ad7f9a08cea4e65fc585924d9fdac7384a"
