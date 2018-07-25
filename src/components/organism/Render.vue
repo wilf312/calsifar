@@ -20,7 +20,7 @@ import draggable from 'vuedraggable'
 import Element from '@/components/molecule/Element.vue'
 import { RootState } from '@/types/store'
 import { UnionElement } from '@/types/element'
-import { Getter, Action } from 'vuex-class'
+import { Getter, Action, Mutation } from 'vuex-class'
 
 @Component({
   name: 'Render',
@@ -32,13 +32,12 @@ import { Getter, Action } from 'vuex-class'
 export default class Render extends Vue {
   @Getter('pageElement') public pageElement!: UnionElement[]
   @Action('changePage') public changePage!: any
-  @Action('setOrderNumber') public setOrderNumber!: any
+  @Mutation('setOrderNumber') public setOrderNumber!: any
 
   get elementList() {
     return this.pageElement
   }
   set elementList(list) {
-    console.log(list)
     this.setOrderNumber(list)
   }
 }
