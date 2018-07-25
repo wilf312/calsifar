@@ -110,6 +110,13 @@ const store: StoreOptions<RootState> = {
     },
     changePage(state, pageNum: number) {
       state.currentPage.pageNum = pageNum
+    },
+    setOrderNumber(state: RootState, elementList: UnionElement[]) {
+      const {
+        currentPage: { pageNum }
+      } = state
+      const filteredList = state.element.filter(({ page }) => page !== pageNum)
+      state.element = [...filteredList, ...elementList]
     }
   },
   actions: {
