@@ -5,7 +5,7 @@ import { PARAGRAPH_TYPE } from '@/const'
 
 const state: EditorState = {
   currentEditUid: '',
-  currendEditElement: {
+  currentEditElement: {
     type: '',
     data: '',
     paragraphType: PARAGRAPH_TYPE.P,
@@ -32,14 +32,17 @@ const getters: GetterTree<EditorState, RootState> = {
       rootState.element.find(({ uid }) => uid === state.currentEditUid) ||
       notFound
     )
-  }
+  },
+  currentEditUid: (state: EditorState): string => state.currentEditUid,
+  currentEditElement: (state: EditorState): UnionElement =>
+    state.currentEditElement
 }
 const mutations: MutationTree<EditorState> = {
   setEditorUid(editorState: EditorState, uid: string): void {
     editorState.currentEditUid = uid
   },
   setEditorElement(editorState: EditorState, element: TextElement): void {
-    editorState.currendEditElement = {
+    editorState.currentEditElement = {
       ...element
     }
   }
