@@ -29,6 +29,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 import { mapActions, mapMutations } from 'vuex'
 import { Action } from 'vuex-class'
 import { TextElement } from '@/types/element'
+import { ALIGN_TYPE } from '@/const'
 
 @Component({
   data() {
@@ -36,15 +37,15 @@ import { TextElement } from '@/types/element'
       alignSetting: [
         {
           name: 'left',
-          data: 'text-xs-left'
+          data: ALIGN_TYPE.LEFT
         },
         {
           name: 'center',
-          data: 'text-xs-center'
+          data: ALIGN_TYPE.CENTER
         },
         {
           name: 'right',
-          data: 'text-xs-right'
+          data: ALIGN_TYPE.RIGHT
         }
       ]
     }

@@ -1,15 +1,15 @@
 import { Module, GetterTree, ActionTree, MutationTree } from 'vuex'
 import { RootState, EditorState } from '@/types/store'
 import { TextElement, UnionElement } from '@/types/element'
-import { PARAGRAPH_TYPE } from '@/const'
+import { PARAGRAPH_TYPE, ALIGN_TYPE, ELEMENT_TYPE } from '@/const'
 
 const state: EditorState = {
   currentEditUid: '',
   currentEditElement: {
-    type: '',
+    type: ELEMENT_TYPE.TEXT,
     data: '',
     paragraphType: PARAGRAPH_TYPE.P,
-    align: 'text-xs-left',
+    align: ALIGN_TYPE.LEFT,
     uid: '',
     page: 1
   }
@@ -18,10 +18,10 @@ const state: EditorState = {
 const getters: GetterTree<EditorState, RootState> = {
   element: (state: EditorState, getters, rootState): UnionElement => {
     const notFound: TextElement = {
-      type: '',
+      type: ELEMENT_TYPE.TEXT,
       data: '',
       paragraphType: PARAGRAPH_TYPE.P,
-      align: 'text-xs-left',
+      align: ALIGN_TYPE.LEFT,
       uid: '',
       page: 1
     }
