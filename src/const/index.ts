@@ -9,3 +9,7 @@ export enum PARAGRAPH_TYPE {
   H6 = 'h6',
   P = 'p'
 }
+
+export enum VERSION {
+  PERSIST_KEY = '3'
+}

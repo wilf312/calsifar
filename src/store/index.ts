@@ -6,7 +6,7 @@ import uuid from 'uuid'
 import { RootState } from '@/types/store'
 import { TextElement, UnionElement } from '@/types/element'
 import { editor } from './editor'
-import { PARAGRAPH_TYPE } from '@/const'
+import { PARAGRAPH_TYPE, VERSION } from '@/const'
 
 Vue.use(Vuex)
 
@@ -135,7 +135,7 @@ const store: StoreOptions<RootState> = {
   },
   plugins: [
     createPersistedState({
-      key: '2'
+      key: VERSION.PERSIST_KEY
     })
   ]
 }
