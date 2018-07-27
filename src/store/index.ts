@@ -105,7 +105,7 @@ const store: StoreOptions<RootState> = {
         }
       })
     },
-    deleteText(state, targetUid: string) {
+    deleteElement(state, targetUid: string) {
       state.element = [...state.element.filter(({ uid }) => uid !== targetUid)]
     },
     changePage(state, pageNum: number) {

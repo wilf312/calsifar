@@ -7,7 +7,7 @@ interface CurrentPage {
 
 export interface EditorState {
   currentEditUid: string
-  currendEditElement: TextElement
+  currentEditElement: TextElement
 }
 
 export interface RootState {
