@@ -1,6 +1,6 @@
 <template>
-  <Paragraph v-if="elementStatus === TEXT" :nodes="nodes" />
-  <Button v-else-if="elementStatus === BUTTON" :nodes="nodes" />
+  <Paragraph v-if="elementStatus === ELEMENT_TYPE.TEXT" :nodes="nodes" />
+  <Button v-else-if="elementStatus === ELEMENT_TYPE.BUTTON" :nodes="nodes" />
 </template>
 
 <script lang="ts">
@@ -24,11 +24,8 @@ export default class Element extends Vue {
     return this.nodes.type
   }
 
-  get TEXT(): ELEMENT_TYPE {
-    return ELEMENT_TYPE.TEXT
-  }
-  get BUTTON(): ELEMENT_TYPE {
-    return ELEMENT_TYPE.BUTTON
+  get ELEMENT_TYPE(): typeof ELEMENT_TYPE {
+    return ELEMENT_TYPE
   }
 }
 </script>

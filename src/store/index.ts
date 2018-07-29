@@ -109,6 +109,18 @@ const store: StoreOptions<RootState> = {
         page: state.currentPage.pageNum
       })
     },
+    addButton(state) {
+      state.element.push({
+        type: ELEMENT_TYPE.BUTTON,
+        data: 'button',
+        paragraphType: 'p',
+        align: ALIGN_TYPE.LEFT,
+        uid: uuid.v4(),
+        page: state.currentPage.pageNum,
+        colorType: THEME_TYPE.PRIMARY,
+        linkTo: state.currentPage.pageNum
+      })
+    },
     editText(state, updateText: TextElement) {
       state.element = state.element.map(d => {
         if (d.uid === updateText.uid) {
@@ -137,6 +149,9 @@ const store: StoreOptions<RootState> = {
   actions: {
     addText({ commit }) {
       commit('addText')
+    },
+    addButton({ commit }) {
+      commit('addButton')
     },
     editText({ commit }, editText: TextElement) {
       commit('editText', editText)
