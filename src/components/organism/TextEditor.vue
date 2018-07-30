@@ -7,6 +7,12 @@
         :value="element.data"
         @input="updateText"
       />
+      <v-text-field
+        label="Paragraph type"
+        placeholder="h1, p"
+        :value="element.paragraphType"
+        @input="updateParagraphType"
+      />
     </v-flex>
   </v-container>
 </template>
@@ -16,9 +22,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 import { Action } from 'vuex-class'
 import { TextElement } from '@/types/element'
 
-@Component({
-  components: {}
-})
+@Component({})
 export default class TextEditor extends Vue {
   @Prop(Object) public element!: TextElement
   @Prop(Object) public editElement!: TextElement
