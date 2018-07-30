@@ -4,7 +4,7 @@
     :class="[nodes.align]"
     >
     <v-btn
-      :color="nodes.themeType"
+      :color="nodes.colorType"
       v-text="nodes.data"
       @click="changePage(nodes.linkTo)"
       ></v-btn>

@@ -1,4 +1,4 @@
-import { THEME_TYPE, ALIGN_TYPE, ELEMENT_TYPE } from '@/const'
+import { THEME_ELEMENT_NAME, ALIGN_TYPE, ELEMENT_TYPE } from '@/const'
 export interface CommonElement {
   type: ELEMENT_TYPE
   uid: string
@@ -12,7 +12,7 @@ export interface TextElement extends CommonElement {
 
 export interface ButtonElement extends CommonElement {
   data: string
-  colorType: THEME_TYPE
+  colorType: THEME_ELEMENT_NAME
   linkTo: number
 }
 

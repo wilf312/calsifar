@@ -14,7 +14,15 @@
         @input="updateLinkTo"
       />
 
-      colorType
+
+      <h2>colorType</h2>
+      <v-radio-group v-model="colorType">
+        <v-radio
+          v-for="(name, key) in THEME_ELEMENT_NAME" :key="key"
+          :label="key"
+          :value="name"
+        ></v-radio>
+      </v-radio-group>
     </v-flex>
   </v-container>
 </template>
@@ -23,6 +31,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { Action } from 'vuex-class'
 import { ButtonElement } from '@/types/element'
+import { THEME_ELEMENT_NAME } from '@/const'
 
 @Component({
   components: {}
@@ -37,5 +46,20 @@ export default class ButtonEditor extends Vue {
 
   @Action('updateLinkTo', { namespace: 'editor' })
   private updateLinkTo: any
+
+  @Action('updateColorType', { namespace: 'editor' })
+  private updateColorType: any
+
+  get THEME_ELEMENT_NAME(): typeof THEME_ELEMENT_NAME {
+    return THEME_ELEMENT_NAME
+  }
+
+  get colorType() {
+    console.log(this.element.colorType)
+    return this.element.colorType
+  }
+  set colorType(colorType: THEME_ELEMENT_NAME) {
+    this.updateColorType(colorType)
+  }
 }
 </script>

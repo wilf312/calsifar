@@ -14,15 +14,6 @@ export enum VERSION {
   PERSIST_KEY = '9'
 }
 
-export enum THEME_TYPE {
-  PRIMARY = 'PRIMARY',
-  SECONDARY = 'SECONDARY',
-  ACCENT = 'ACCENT',
-  INFO = 'INFO',
-  SUCCESS = 'SUCCESS',
-  WARNING = 'WARNING'
-}
-
 export enum ELEMENT_TYPE {
   BUTTON = 'BUTTON',
   TEXT = 'TEXT',
@@ -35,4 +26,14 @@ export enum ALIGN_TYPE {
   LEFT = 'text-xs-left',
   CENTER = 'text-xs-center',
   RIGHT = 'text-xs-right'
+}
+
+export enum THEME_ELEMENT_NAME {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  ACCENT = 'accent',
+  ERROR = 'error',
+  INFO = 'info',
+  SUCCESS = 'success',
+  WARNING = 'warning'
 }

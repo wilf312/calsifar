@@ -9,7 +9,7 @@ import { editor } from './editor'
 import {
   PARAGRAPH_TYPE,
   VERSION,
-  THEME_TYPE,
+  THEME_ELEMENT_NAME,
   ELEMENT_TYPE,
   ALIGN_TYPE
 } from '@/const'
@@ -24,7 +24,7 @@ const store: StoreOptions<RootState> = {
       {
         type: ELEMENT_TYPE.BUTTON,
         data: 'test',
-        colorType: THEME_TYPE.PRIMARY,
+        colorType: THEME_ELEMENT_NAME.PRIMARY,
         align: ALIGN_TYPE.LEFT,
         linkTo: 3,
         uid: uuid.v4(),
@@ -117,7 +117,7 @@ const store: StoreOptions<RootState> = {
         align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: state.currentPage.pageNum,
-        colorType: THEME_TYPE.PRIMARY,
+        colorType: THEME_ELEMENT_NAME.PRIMARY,
         linkTo: state.currentPage.pageNum
       })
     },
