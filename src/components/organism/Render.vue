@@ -9,7 +9,6 @@
       <p>no element.</p>
       <p>please add element</p>
     </div>
-    <v-btn @click="() => { this.changePage(2) }">次のページ(固定で2へ移動する)</v-btn>
   </div>
 </template>
 
@@ -31,7 +30,6 @@ import { Getter, Action, Mutation } from 'vuex-class'
 })
 export default class Render extends Vue {
   @Getter('pageElement') public pageElement!: UnionElement[]
-  @Action('changePage') public changePage!: any
   @Mutation('setOrderNumber') public setOrderNumber!: any
 
   get elementList() {

@@ -9,12 +9,15 @@
         </v-list-tile>
       </v-list>
     </v-toolbar>
-    <TextEditor :editElement="currentEditElement" :element="element" />
+    <TextEditor v-if="elementStatus === ELEMENT_TYPE.TEXT"
+      :editElement="currentEditElement" :element="element" />
+    <TextEditor v-if="elementStatus === ELEMENT_TYPE.BUTTON"
+      :editElement="currentEditElement" :element="element" />
 
 
     <p class="justify-center d-flex"><v-btn @click="deleteElement(currentEditUid)">削除</v-btn></p>
     {{currentEditUid}}
-    {{element}}
+    {{currentEditElement}}
   </v-navigation-drawer>
 </template>
 
@@ -23,8 +26,10 @@ import { Component, Vue } from 'vue-property-decorator'
 import { mapGetters, mapState } from 'vuex'
 import { Getter, Mutation } from 'vuex-class'
 import TextEditor from '@/components/organism/TextEditor.vue'
+import ButtonEditor from '@/components/organism/ButtonEditor.vue'
 import { EditorState } from '@/types/store'
 import { TextElement, UnionElement } from '@/types/element'
+import { ELEMENT_TYPE } from '@/const'
 
 @Component({
   components: { TextEditor }
@@ -37,5 +42,9 @@ export default class ElementEditor extends Vue {
   @Getter('currentEditElement', { namespace: 'editor' })
   private currentEditElement!: UnionElement
   @Mutation('deleteElement') private deleteElement!: any
+
+  get ELEMENT_TYPE(): typeof ELEMENT_TYPE {
+    return ELEMENT_TYPE
+  }
 }
 </script>
