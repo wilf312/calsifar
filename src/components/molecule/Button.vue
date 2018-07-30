@@ -1,8 +1,10 @@
 <template>
-  <v-flex @click="setEditor(nodes.uid, nodes.type)">
+  <v-flex
+    @click="setEditor(nodes.uid, nodes.type)"
+    :class="[nodes.align]"
+    >
     <v-btn
       :color="nodes.themeType"
-      :class="[nodes.align]"
       v-text="nodes.data"
       @click="changePage(nodes.linkTo)"
       ></v-btn>

@@ -81,6 +81,16 @@ const actions: ActionTree<EditorState, RootState> = {
       },
       { root: true }
     )
+  },
+  updateLinkTo({ dispatch, getters }, linkTo: string) {
+    dispatch(
+      'editText',
+      {
+        ...getters.element,
+        linkTo: Number(linkTo)
+      },
+      { root: true }
+    )
   }
 }
 

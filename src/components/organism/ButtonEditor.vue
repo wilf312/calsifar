@@ -8,67 +8,34 @@
         @input="updateText"
       />
       <v-text-field
-        label="Paragraph type"
-        placeholder="h1, p"
-        :value="element.paragraphType"
-        @input="updateParagraphType"
+        label="Link page"
+        placeholder="input text..."
+        :value="element.linkTo"
+        @input="updateLinkTo"
       />
-      <v-radio-group v-model="align">
-        <v-radio
-          v-for="({name, data}, key) in alignSetting" :key="key"
-          :label="name"
-          :value="data"
-        ></v-radio>
-      </v-radio-group>
+
+      colorType
     </v-flex>
   </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { mapActions, mapMutations } from 'vuex'
 import { Action } from 'vuex-class'
-import { TextElement } from '@/types/element'
-import { ALIGN_TYPE } from '@/const'
+import { ButtonElement } from '@/types/element'
 
 @Component({
-  data() {
-    return {
-      alignSetting: [
-        {
-          name: 'left',
-          data: ALIGN_TYPE.LEFT
-        },
-        {
-          name: 'center',
-          data: ALIGN_TYPE.CENTER
-        },
-        {
-          name: 'right',
-          data: ALIGN_TYPE.RIGHT
-        }
-      ]
-    }
-  },
   components: {}
 })
-export default class TextEditor extends Vue {
-  @Prop(Object) public element!: TextElement
-  @Prop(Object) public editElement!: TextElement
+export default class ButtonEditor extends Vue {
+  @Prop(Object) public element!: ButtonElement
+  @Prop(Object) public editElement!: ButtonElement
 
   @Action('editText') public editText: any
   @Action('updateText', { namespace: 'editor' })
   private updateText: any
-  @Action('updateParagraphType', { namespace: 'editor' })
-  private updateParagraphType: any
-  @Action('updateAlign', { namespace: 'editor' })
-  private updateAlign: any
 
-  get align() {
-    return this.element.align
-  }
-  set align(align: string) {
-    this.updateAlign(align)
-  }
+  @Action('updateLinkTo', { namespace: 'editor' })
+  private updateLinkTo: any
 }
 </script>
