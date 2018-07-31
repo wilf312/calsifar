@@ -1,6 +1,6 @@
 <template>
   <v-footer app>
-    <v-bottom-sheet v-model="isVisibleForAddElement">
+    <!-- <v-bottom-sheet v-model="isVisibleForAddElement">
       <v-btn
         slot="activator"
         color="red"
@@ -20,7 +20,12 @@
         </v-list-tile>
         <v-btn @click="isVisibleForAddElement = false">close</v-btn>
       </v-list>
-    </v-bottom-sheet>
+    </v-bottom-sheet> -->
+
+    <div>
+      <v-btn @click="addText()">text</v-btn>
+      <v-btn @click="addButton()">button</v-btn>
+    </div>
 
     <v-spacer />
     <div>
@@ -50,6 +55,7 @@ export default class Footer extends Vue {
   ]
   @Action('changePage') private changePage: any
   @Action('addText') private addText: any
+  @Action('addButton') private addButton: any
   @Getter('currentPageNum') private currentPageNum!: number
 
   public nextPage() {

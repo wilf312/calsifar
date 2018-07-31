@@ -13,44 +13,16 @@
         :value="element.paragraphType"
         @input="updateParagraphType"
       />
-      <v-radio-group v-model="align">
-        <v-radio
-          v-for="({name, data}, key) in alignSetting" :key="key"
-          :label="name"
-          :value="data"
-        ></v-radio>
-      </v-radio-group>
     </v-flex>
   </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { mapActions, mapMutations } from 'vuex'
 import { Action } from 'vuex-class'
 import { TextElement } from '@/types/element'
 
-@Component({
-  data() {
-    return {
-      alignSetting: [
-        {
-          name: 'left',
-          data: 'text-xs-left'
-        },
-        {
-          name: 'center',
-          data: 'text-xs-center'
-        },
-        {
-          name: 'right',
-          data: 'text-xs-right'
-        }
-      ]
-    }
-  },
-  components: {}
-})
+@Component({})
 export default class TextEditor extends Vue {
   @Prop(Object) public element!: TextElement
   @Prop(Object) public editElement!: TextElement
@@ -60,14 +32,5 @@ export default class TextEditor extends Vue {
   private updateText: any
   @Action('updateParagraphType', { namespace: 'editor' })
   private updateParagraphType: any
-  @Action('updateAlign', { namespace: 'editor' })
-  private updateAlign: any
-
-  get align() {
-    return this.element.align
-  }
-  set align(align: string) {
-    this.updateAlign(align)
-  }
 }
 </script>

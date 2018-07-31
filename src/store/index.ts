@@ -6,7 +6,13 @@ import uuid from 'uuid'
 import { RootState } from '@/types/store'
 import { TextElement, UnionElement } from '@/types/element'
 import { editor } from './editor'
-import { PARAGRAPH_TYPE, VERSION } from '@/const'
+import {
+  PARAGRAPH_TYPE,
+  VERSION,
+  THEME_ELEMENT_NAME,
+  ELEMENT_TYPE,
+  ALIGN_TYPE
+} from '@/const'
 
 Vue.use(Vuex)
 
@@ -16,58 +22,67 @@ const store: StoreOptions<RootState> = {
     currentPage: { type: 'page', pageNum: 1 },
     element: [
       {
-        type: 'text',
+        type: ELEMENT_TYPE.BUTTON,
+        data: 'test',
+        colorType: THEME_ELEMENT_NAME.PRIMARY,
+        align: ALIGN_TYPE.LEFT,
+        linkTo: 3,
+        uid: uuid.v4(),
+        page: 1
+      },
+      {
+        type: ELEMENT_TYPE.TEXT,
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: PARAGRAPH_TYPE.H1,
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: 1
       },
       {
-        type: 'text',
+        type: ELEMENT_TYPE.TEXT,
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: PARAGRAPH_TYPE.H2,
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: 1
       },
       {
-        type: 'text',
+        type: ELEMENT_TYPE.TEXT,
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: PARAGRAPH_TYPE.H3,
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: 1
       },
       {
-        type: 'text',
+        type: ELEMENT_TYPE.TEXT,
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: PARAGRAPH_TYPE.H4,
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: 1
       },
       {
-        type: 'text',
+        type: ELEMENT_TYPE.TEXT,
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: PARAGRAPH_TYPE.H5,
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: 1
       },
       {
-        type: 'text',
+        type: ELEMENT_TYPE.TEXT,
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: PARAGRAPH_TYPE.H6,
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: 1
       },
       {
-        type: 'text',
+        type: ELEMENT_TYPE.TEXT,
         data: 'Would you choose to sleep with the fishes?',
         paragraphType: PARAGRAPH_TYPE.P,
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: 1
       }
@@ -86,12 +101,24 @@ const store: StoreOptions<RootState> = {
   mutations: {
     addText(state) {
       state.element.push({
-        type: 'text',
+        type: ELEMENT_TYPE.TEXT,
         data: 'please edit text',
         paragraphType: 'p',
-        align: 'text-xs-left',
+        align: ALIGN_TYPE.LEFT,
         uid: uuid.v4(),
         page: state.currentPage.pageNum
+      })
+    },
+    addButton(state) {
+      state.element.push({
+        type: ELEMENT_TYPE.BUTTON,
+        data: 'button',
+        paragraphType: 'p',
+        align: ALIGN_TYPE.LEFT,
+        uid: uuid.v4(),
+        page: state.currentPage.pageNum,
+        colorType: THEME_ELEMENT_NAME.PRIMARY,
+        linkTo: state.currentPage.pageNum
       })
     },
     editText(state, updateText: TextElement) {
@@ -122,6 +149,9 @@ const store: StoreOptions<RootState> = {
   actions: {
     addText({ commit }) {
       commit('addText')
+    },
+    addButton({ commit }) {
+      commit('addButton')
     },
     editText({ commit }, editText: TextElement) {
       commit('editText', editText)

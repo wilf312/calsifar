@@ -11,5 +11,29 @@ export enum PARAGRAPH_TYPE {
 }
 
 export enum VERSION {
-  PERSIST_KEY = '3'
+  PERSIST_KEY = '9'
+}
+
+export enum ELEMENT_TYPE {
+  BUTTON = 'BUTTON',
+  TEXT = 'TEXT',
+  SELECT = 'SELECT',
+  RADIO = 'RADIO',
+  CHECKBOX = 'CHECKBOX'
+}
+
+export enum ALIGN_TYPE {
+  LEFT = 'text-xs-left',
+  CENTER = 'text-xs-center',
+  RIGHT = 'text-xs-right'
+}
+
+export enum THEME_ELEMENT_NAME {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  ACCENT = 'accent',
+  ERROR = 'error',
+  INFO = 'info',
+  SUCCESS = 'success',
+  WARNING = 'warning'
 }
