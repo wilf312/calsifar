@@ -44,7 +44,6 @@ import { TextElement } from '@/types/element'
 import { PARAGRAPH_TYPE } from '@/const'
 
 @Component({
-  name: 'Paragraph',
   components: {
     ErrorText
   }
@@ -52,7 +51,8 @@ import { PARAGRAPH_TYPE } from '@/const'
 export default class Paragraph extends Vue {
   @Action('setEditor', { namespace: 'editor' })
   public setEditor: any
-  @Prop(Object) private nodes!: TextElement
+  @Prop(Object)
+  private nodes!: TextElement
   @Prop({ default: () => PARAGRAPH_TYPE })
   private PARAGRAPH_TYPE!: PARAGRAPH_TYPE
 }

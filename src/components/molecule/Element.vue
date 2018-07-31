@@ -17,7 +17,8 @@ import { ELEMENT_TYPE } from '@/const'
   }
 })
 export default class Element extends Vue {
-  @Prop(Object) public nodes!: TextElement
+  @Prop(Object)
+  public nodes!: TextElement
 
   get elementStatus(): string {
     return this.nodes.type

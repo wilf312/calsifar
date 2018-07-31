@@ -51,10 +51,14 @@ export default class Footer extends Vue {
     { title: 'Text' },
     { title: 'Google+' }
   ]
-  @Action('changePage') private changePage: any
-  @Action('addText') private addText: any
-  @Action('addButton') private addButton: any
-  @Getter('currentPageNum') private currentPageNum!: number
+  @Action('changePage')
+  private changePage: any
+  @Action('addText')
+  private addText: any
+  @Action('addButton')
+  private addButton: any
+  @Getter('currentPageNum')
+  private currentPageNum!: number
 
   public nextPage() {
     this.changePage(this.currentPageNum + 1)

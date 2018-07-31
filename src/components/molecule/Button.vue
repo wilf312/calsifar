@@ -20,7 +20,9 @@ import { ButtonElement } from '@/types/element'
 export default class Button extends Vue {
   @Action('setEditor', { namespace: 'editor' })
   public setEditor!: any
-  @Prop(Object) private nodes!: ButtonElement
-  @Action('changePage') private changePage: any
+  @Prop(Object)
+  private nodes!: ButtonElement
+  @Action('changePage')
+  private changePage: any
 }
 </script>

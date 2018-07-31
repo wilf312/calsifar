@@ -68,7 +68,8 @@ export default class ElementEditor extends Vue {
   private currentEditUid!: string
   @Getter('currentEditElement', { namespace: 'editor' })
   private currentEditElement!: UnionElement
-  @Mutation('deleteElement') private deleteElement!: any
+  @Mutation('deleteElement')
+  private deleteElement!: any
 
   @Action('updateAlign', { namespace: 'editor' })
   private updateAlign: any

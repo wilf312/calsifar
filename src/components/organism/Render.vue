@@ -26,8 +26,10 @@ import { UnionElement } from '@/types/element'
   }
 })
 export default class Render extends Vue {
-  @Getter('pageElement') public pageElement!: UnionElement[]
-  @Mutation('setOrderNumber') public setOrderNumber!: any
+  @Getter('pageElement')
+  public pageElement!: UnionElement[]
+  @Mutation('setOrderNumber')
+  public setOrderNumber!: any
 
   get elementList() {
     return this.pageElement
