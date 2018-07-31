@@ -38,23 +38,21 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
-import { mapActions } from 'vuex'
+import { Vue, Component, Prop, Action } from '@/alias'
 import ErrorText from '@/components/atom/ErrorText.vue'
 import { TextElement } from '@/types/element'
 import { PARAGRAPH_TYPE } from '@/const'
 
 @Component({
-  name: 'Paragraph',
   components: {
     ErrorText
-  },
-  methods: {
-    ...mapActions('editor', ['setEditor'])
   }
 })
 export default class Paragraph extends Vue {
-  @Prop(Object) private nodes!: TextElement
+  @Action('setEditor', { namespace: 'editor' })
+  public setEditor: any
+  @Prop(Object)
+  private nodes!: TextElement
   @Prop({ default: () => PARAGRAPH_TYPE })
   private PARAGRAPH_TYPE!: PARAGRAPH_TYPE
 }

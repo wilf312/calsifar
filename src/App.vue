@@ -3,11 +3,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from '@/alias'
 
-@Component({
-  name: 'App',
-  components: {}
-})
+@Component({})
 export default class App extends Vue {}
 </script>

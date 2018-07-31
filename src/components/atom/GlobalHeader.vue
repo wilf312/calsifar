@@ -9,10 +9,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from '@/alias'
 
 @Component
 export default class GlobalHeader extends Vue {
-  @Prop() public title!: string
+  @Prop()
+  public title!: string
 }
 </script>

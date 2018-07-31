@@ -28,19 +28,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
-import { Action } from 'vuex-class'
+import { Vue, Component, Prop, Action } from '@/alias'
 import { ButtonElement } from '@/types/element'
 import { THEME_ELEMENT_NAME } from '@/const'
 
-@Component({
-  components: {}
-})
+@Component({})
 export default class ButtonEditor extends Vue {
-  @Prop(Object) public element!: ButtonElement
-  @Prop(Object) public editElement!: ButtonElement
+  @Prop(Object)
+  public element!: ButtonElement
+  @Prop(Object)
+  public editElement!: ButtonElement
 
-  @Action('editText') public editText: any
+  @Action('editText')
+  public editText: any
   @Action('updateText', { namespace: 'editor' })
   private updateText: any
 
@@ -55,7 +55,6 @@ export default class ButtonEditor extends Vue {
   }
 
   get colorType() {
-    console.log(this.element.colorType)
     return this.element.colorType
   }
   set colorType(colorType: THEME_ELEMENT_NAME) {

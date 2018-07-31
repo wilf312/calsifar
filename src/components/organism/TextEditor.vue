@@ -18,16 +18,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
-import { Action } from 'vuex-class'
+import { Vue, Component, Prop, Action } from '@/alias'
 import { TextElement } from '@/types/element'
 
 @Component({})
 export default class TextEditor extends Vue {
-  @Prop(Object) public element!: TextElement
-  @Prop(Object) public editElement!: TextElement
+  @Prop(Object)
+  public element!: TextElement
+  @Prop(Object)
+  public editElement!: TextElement
 
-  @Action('editText') public editText: any
+  @Action('editText')
+  public editText: any
   @Action('updateText', { namespace: 'editor' })
   private updateText: any
   @Action('updateParagraphType', { namespace: 'editor' })
