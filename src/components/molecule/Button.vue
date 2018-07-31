@@ -13,15 +13,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
-import { mapActions } from 'vuex'
-import { Action } from 'vuex-class'
+import { Vue, Component, Prop, Action } from '@/alias'
 import { ButtonElement } from '@/types/element'
 
-@Component({
-  name: 'Button',
-  components: {}
-})
+@Component({})
 export default class Button extends Vue {
   @Action('setEditor', { namespace: 'editor' })
   public setEditor!: any

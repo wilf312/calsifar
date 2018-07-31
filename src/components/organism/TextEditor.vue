@@ -18,8 +18,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
-import { Action } from 'vuex-class'
+import { Vue, Component, Prop, Action } from '@/alias'
 import { TextElement } from '@/types/element'
 
 @Component({})

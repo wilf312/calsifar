@@ -13,16 +13,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import { mapGetters, mapActions } from 'vuex'
+import { Vue, Component, Prop, Action, Getter, Mutation } from '@/alias'
 import draggable from 'vuedraggable'
 import Element from '@/components/molecule/Element.vue'
 import { RootState } from '@/types/store'
 import { UnionElement } from '@/types/element'
-import { Getter, Action, Mutation } from 'vuex-class'
 
 @Component({
-  name: 'Render',
   components: {
     Element,
     draggable

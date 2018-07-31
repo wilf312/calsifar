@@ -28,14 +28,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
-import { Action } from 'vuex-class'
+import { Vue, Component, Prop, Action } from '@/alias'
 import { ButtonElement } from '@/types/element'
 import { THEME_ELEMENT_NAME } from '@/const'
 
-@Component({
-  components: {}
-})
+@Component({})
 export default class ButtonEditor extends Vue {
   @Prop(Object) public element!: ButtonElement
   @Prop(Object) public editElement!: ButtonElement

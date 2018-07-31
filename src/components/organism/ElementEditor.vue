@@ -33,9 +33,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { mapGetters, mapState } from 'vuex'
-import { Getter, Mutation, Action } from 'vuex-class'
+import { Vue, Component, Prop, Action, Getter, Mutation } from '@/alias'
 import TextEditor from '@/components/organism/TextEditor.vue'
 import ButtonEditor from '@/components/organism/ButtonEditor.vue'
 import { EditorState } from '@/types/store'

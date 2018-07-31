@@ -4,14 +4,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Action } from '@/alias'
 import Paragraph from '@/components/molecule/Paragraph.vue'
 import Button from '@/components/molecule/Button.vue'
 import { TextElement } from '@/types/element'
 import { ELEMENT_TYPE } from '@/const'
 
 @Component({
-  name: 'Element',
   components: {
     Button,
     Paragraph
