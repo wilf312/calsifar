@@ -22,6 +22,26 @@ const store: StoreOptions<RootState> = {
     currentPage: { type: 'page', pageNum: 1 },
     element: [
       {
+        type: ELEMENT_TYPE.CHECKBOX,
+        dataList: [
+          {
+            name: 'radio 1',
+            checked: true
+          },
+          {
+            name: 'radio 2',
+            checked: false
+          },
+          {
+            name: 'radio 3',
+            checked: false
+          }
+        ],
+        align: ALIGN_TYPE.LEFT,
+        uid: uuid.v4(),
+        page: 1
+      },
+      {
         type: ELEMENT_TYPE.BUTTON,
         data: 'test',
         colorType: THEME_ELEMENT_NAME.PRIMARY,
