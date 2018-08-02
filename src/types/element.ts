@@ -16,4 +16,13 @@ export interface ButtonElement extends CommonElement {
   linkTo: number
 }
 
-export type UnionElement = TextElement | ButtonElement
+interface Checkbox {
+  name: string
+  checked: boolean
+}
+
+export interface CheckboxElement extends CommonElement {
+  dataList: Checkbox[]
+}
+
+export type UnionElement = TextElement | ButtonElement | CheckboxElement

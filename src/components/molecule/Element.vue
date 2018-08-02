@@ -1,19 +1,22 @@
 <template>
   <Paragraph v-if="elementStatus === ELEMENT_TYPE.TEXT" :nodes="nodes" />
   <Button v-else-if="elementStatus === ELEMENT_TYPE.BUTTON" :nodes="nodes" />
+  <CheckboxList v-else-if="elementStatus === ELEMENT_TYPE.CHECKBOX" :nodes="nodes" />
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Action } from '@/alias'
 import Paragraph from '@/components/molecule/Paragraph.vue'
 import Button from '@/components/molecule/Button.vue'
+import CheckboxList from '@/components/molecule/CheckboxList.vue'
 import { TextElement } from '@/types/element'
 import { ELEMENT_TYPE } from '@/const'
 
 @Component({
   components: {
     Button,
-    Paragraph
+    Paragraph,
+    CheckboxList
   }
 })
 export default class Element extends Vue {
